@@ -26,7 +26,7 @@
 |---|---|---|---|
 | Arm Motor 1 | CANSparkMax |CAN ID: | A **motor** for controlling the arm |
 | Arm Motor 2 | CANSparkMax |CAN ID: | A **motor** for controlling the arm |
-| Arm Encoder | DutyCycleEncoder | PWM Ports 0 & 1 | An **absolute encoder** for sensing the arm angle |
+| Arm Encoder | [PutEncoderHere] | [PutPWMPortsHere]  | An **absolute encoder** for sensing the arm angle |
 
 ## Shooter/Intake
 
@@ -50,12 +50,11 @@
 ## Getting Started
 To deploy and run this code on the robot, follow these steps:
 
-1. Clone this repository to your development environment.
-2. Open the project in your preferred IDE (we use WPIlib VSCode).
-3. Ensure that all dependencies are correctly installed and configured.
-4. Build the project to ensure there are no compilation errors.
-5. Deploy the code to your robot using your preferred deployment method (we use Ethernet).
-6. Test each subsystem to verify functionality.
+1. Open the project in your preferred IDE (we use WPIlib VSCode).
+2. Ensure that all dependencies are correctly installed and configured.
+3. Build the project to ensure there are no compilation errors.
+4. Deploy the code to your robot using your preferred deployment method (we use Ethernet).
+5. Test each subsystem to verify functionality.
 
 
 ## Contributing
