@@ -9,10 +9,10 @@
 
 # Actions
 
-  Our robot, [insert robot name here], is designed to: pick up notes from the ground, pick up notes from the human player station, shoot notes in the speaker and amp, and drive under the stage. It has an arm subsystem, shooter subsystem, an intake subsystem (the shooter and intake are grouped together though), and tank drive.
+  Our robot, [insert robot name here], is designed to: pick up notes from the ground, pick up notes from the human player station, shoot notes in the speaker and amp, and drive under the stage. It has an arm subsystem, a climber subsystem, a shooter subsystem, an intake subsystem (the shooter and intake are grouped together though), and uses tank drive to move.
 
   
-  Teleop strategy: During teleop, the player will control the robot to pick up notes on the ground on its side of the field and also go across the field to pick up notes dropped by the human player. The robot will then shoot the notes in both the speaker and the amp until the endgame buzzer goes off, after which the player will not have the robot climb the chain.
+  Teleop strategy: During teleop, the player will control the robot to pick up notes on the ground on its side of the field and also go across the field to pick up notes dropped by the human player. The robot will then shoot the notes in both the speaker and the amp until the endgame buzzer goes off, and climb onto a chain (the stage), possibly climbing with another robot.
 
   Auto strategy (to be determined): [insert auto strategy here]
 
@@ -38,7 +38,19 @@
 | Shooter Motor | CANSparkMax | CAN ID:  | A **motor** for controlling the shooter |
 | Shooter Motor | CANSparkMax | CAN ID:  | A **motor** for controlling the shooter |
 
-## Drivetrain:
+## Climber
+
+  The climber is made up of two hooks that lift the robot off the ground in endgame.
+
+  | Component ID | Interface | Connection | Role |
+|---|---|---|---|
+| Climber Motor Left | CANSparkMax | CAN ID: 14 | A **motor** for controlling the left climber |
+| Climber Motor Right | CANSparkMax | CAN ID: 15 | A **motor** for controlling the right climber |
+| Solenoid Left | Relay | Relay Port: 0 | A solenoid that is powered by a **relay** that locks the position of the left climber |
+| Solenoid Right | Relay | Relay Port: 1 | A solenoid that is powered by a **relay** that locks the position of the right climber |
+
+
+## Drivetrain
 
   This robot uses tank drive to move, and it includes 4 TalonSRX motors, white/80A durometer HiGRip wheels, and an 8.46:1 gear ratio.
 
