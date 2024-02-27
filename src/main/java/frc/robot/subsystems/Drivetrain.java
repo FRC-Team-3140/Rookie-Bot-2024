@@ -32,17 +32,16 @@ public class Drivetrain extends SubsystemBase {
  // Feel free to change power percentages
 
     public void setDriveMotors(double forward, double turn) {
-        SmartDashboard.putNumber(0, forward);
-        SmartDashboard.putNumber(0, turn);
-
+        SmartDashboard.putNumber("drive forward power (%)", forward);
+        SmartDashboard.putNumber("drive forward power (%)", turn);
         double left = forward;
         double right = forward;
 
         left -= turn;
         right += turn;
 
-        SmartDashboard.putNumber(0, left);
-        SmartDashboard.putNumber(0, right);
+        SmartDashboard.putNumber("drive forward power (%)", left);
+        SmartDashboard.putNumber("drive forward power (%)", right);
 
         driveLeftFrontTalon.set(ControlMode.PercentOutput, left);
         driveLeftBackTalon.set(ControlMode.PercentOutput, left);
