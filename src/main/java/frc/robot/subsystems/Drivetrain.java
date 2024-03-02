@@ -48,4 +48,9 @@ public class Drivetrain extends SubsystemBase {
         driveRightFrontTalon.set(ControlMode.PercentOutput, right);
         driveRightBackTalon.set(ControlMode.PercentOutput, right);
     }
+
+    public Runnable driveTank(double rightY) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'driveTank'");
+    }
 }
