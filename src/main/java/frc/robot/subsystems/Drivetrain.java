@@ -2,14 +2,9 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX; // Use TalonSRX for Phoenix 5
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
-// Tank Drive
-// Uses only TalonSRX motors for both left and right sides.
-// Configures TalonSRX motors for brake mode and inverted as needed.
-// Implements tank drive logic in the setDriveMotors method.
 
 public class Drivetrain extends SubsystemBase {
     public static TalonSRX driveLeftFrontTalon = new TalonSRX(1);
@@ -29,28 +24,22 @@ public class Drivetrain extends SubsystemBase {
         driveRightBackTalon.setNeutralMode(NeutralMode.Brake);
     }
 
- // Feel free to change power percentages
-
+    // Feel free to change power percentages
     public void setDriveMotors(double forward, double turn) {
         SmartDashboard.putNumber("drive forward power (%)", forward);
-        SmartDashboard.putNumber("drive forward power (%)", turn);
+        SmartDashboard.putNumber("drive turn power (%)", turn);
         double left = forward;
         double right = forward;
 
         left -= turn;
         right += turn;
 
-        SmartDashboard.putNumber("drive forward power (%)", left);
-        SmartDashboard.putNumber("drive forward power (%)", right);
+        SmartDashboard.putNumber("left motor power (%)", left);
+        SmartDashboard.putNumber("right motor power (%)", right);
 
         driveLeftFrontTalon.set(ControlMode.PercentOutput, left);
         driveLeftBackTalon.set(ControlMode.PercentOutput, left);
         driveRightFrontTalon.set(ControlMode.PercentOutput, right);
         driveRightBackTalon.set(ControlMode.PercentOutput, right);
-    }
-
-    public Runnable driveTank(double rightY) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'driveTank'");
     }
 }

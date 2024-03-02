@@ -1,42 +1,38 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.InstantCommand;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj.XboxController;import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.ControlMode;
 import frc.robot.subsystems.Drivetrain;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
-  // Define Xbox controller
-  private XboxController driverController = new XboxController(0);
-  
-  private final Drivetrain drivetrain;
+    private final Drivetrain m_drivetrain;
+    private final XboxController m_controller;
 
-  public RobotContainer(){
-    drivetrain = new Drivetrain();
+    public RobotContainer() {
+        m_drivetrain = new Drivetrain();
+        m_controller = new XboxController(0); // Assuming the Xbox controller is plugged into port 0
 
-    // Configure the button bindings
-     configureButtonBindings();
+        configureButtonBindings();
+    }
 
-  }
+    private void configureButtonBindings() {
+        // Example button bindings
+        JoystickButton buttonA = new JoystickButton(m_controller, XboxController.Button.kA.value);
 
-  private void configureButtonBindings(){
-    // Drive forward when pushing the left and right joysticks forward
-  new JoystickButton(driverController,XboxController.Button.kLeftBumper.value).onTrue(new InstantCommand(drivetrain.driveTank(driverController.getLeftY())));
-  new JoystickButton(driverController,XboxController.Button.kRightBumper.value).onTrue(new InstantCommand(drivetrain.driveTank(driverController.getRightY())));
+        buttonA.whenPressed(
+            () -> m_drivetrain.setDriveMotors(0.5, 0.0),
+            m_drivetrain); // Example: Move forward at 50% power when pressed
 
-  }
+        buttonA.whenReleased(
+            () -> m_drivetrain.setDriveMotors(0.0, 0.0),
+            m_drivetrain); // Stop when released
+
+        // Add more button bindings as needed for other controls
+    }
+
+    public Command getAutonomousCommand() {
+        // We don't have an autonomous command in this example, so return null
+        return null;
+    }
 }
-
-
