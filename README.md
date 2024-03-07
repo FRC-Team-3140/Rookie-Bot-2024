@@ -1,6 +1,8 @@
-# Team 3140 - [Robot Name]
+Note: All commits are made by Grace (GP), I keep forgetting to write my initials sorry...
 
-  Welcome to the repository for Flagship 3140's rookie bot code for the 2024 FRC season. This README provides an overview of our robot, its subsystems, and how to use this codebase.
+# Team 3140 - Jackbot
+
+  Welcome to the repository for Flagship 3140's Jackbot code for the 2024 FRC season. This README provides an overview of our robot, its subsystems, and how to use this codebase.
 
 ## References
 
@@ -9,7 +11,7 @@
 
 # Actions
 
-  Our robot, [insert robot name here], is designed to: pick up notes from the ground, pick up notes from the human player station, shoot notes in the speaker and amp, and drive under the stage. It has an arm subsystem, a climber subsystem, a shooter subsystem, an intake subsystem (the shooter and intake are grouped together though), and uses tank drive to move.
+  Our robot, Jackbot, is designed to: pick up notes from the ground, pick up notes from the human player station, shoot notes in the speaker and amp, and drive under the stage. It has an arm subsystem, a climber subsystem, a shooter subsystem, an intake subsystem (the shooter and intake are grouped together though), and uses tank drive to move.
 
   
   Teleop strategy: During teleop, the player will control the robot to pick up notes on the ground on its side of the field and also go across the field to pick up notes dropped by the human player. The robot will then shoot the notes in both the speaker and the amp until the endgame buzzer goes off, and climb onto a chain (the stage), possibly climbing with another robot.
